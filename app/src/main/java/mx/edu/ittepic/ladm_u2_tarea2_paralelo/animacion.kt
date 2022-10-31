@@ -4,6 +4,7 @@ import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
+import android.view.MotionEvent
 import android.view.View
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
@@ -20,16 +21,19 @@ class animacion (p:MainActivity): View(p) {
     var satelite = BitmapFactory.decodeResource(resources, R.drawable.satelite1)
     var estrella= BitmapFactory.decodeResource(resources, R.drawable.estrellas)
 
+
     var c1x= 250f
     var c1y= 1200f
 
     var c2x= 480f
     var c2y= 1200f
     var hilo=Hilo(this)
-    init {
+
+    /*init {
         avancecohete2()
         hilo.start()
-    }
+    }*/
+
     override fun onDraw(c: Canvas) {
         super.onDraw(c)
         var p= Paint()
@@ -44,9 +48,20 @@ class animacion (p:MainActivity): View(p) {
         c.drawBitmap(estrella,5f,20f,p)
         c.drawBitmap(estrella,900f,20f,p)
 
+
         //dinamicos
         c.drawBitmap(cohete1,c1x,c1y,p)
         c.drawBitmap(cohete2,c2x,c2y,p)
+    }
+
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        when(event.action){
+            MotionEvent.ACTION_DOWN->{
+                avancecohete2()
+                hilo.start()
+            }
+        }
+        return true
     }
 
     fun avancecohete2()= GlobalScope.launch {
@@ -66,7 +81,7 @@ class Hilo (activity:animacion):Thread(){
     override fun run() {
         super.run()
         while (act.c1y>200f){
-            act.c1y-=.5f
+            act.c1y-=5f
 
             sleep(20)
         }
