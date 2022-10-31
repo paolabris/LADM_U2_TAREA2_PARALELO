@@ -50,14 +50,10 @@ class animacion (p:MainActivity): View(p) {
     }
 
     fun avancecohete2()= GlobalScope.launch {
-        var direccionY=5
-        while(true){
+        while (c2y>200f){
+            c2y-=5f
+            invalidate() //vuelve a llamar
             delay(20)
-            c2y-=direccionY
-            if(c2y<200 || c2y>1200){
-                direccionY*=+1
-            }
-            invalidate()
         }
     }
 
