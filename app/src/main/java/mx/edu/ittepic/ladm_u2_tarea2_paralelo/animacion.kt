@@ -20,19 +20,15 @@ class animacion (p:MainActivity): View(p) {
     var meta= BitmapFactory.decodeResource(resources, R.drawable.meta)
     var satelite = BitmapFactory.decodeResource(resources, R.drawable.satelite1)
     var estrella= BitmapFactory.decodeResource(resources, R.drawable.estrellas)
+    var coheteV1= BitmapFactory.decodeResource(resources,R.drawable.cohetevolteado)
+    var coheteV2= BitmapFactory.decodeResource(resources,R.drawable.cohetevolteado)
 
 
-    var c1x= 250f
     var c1y= 1200f
-
-    var c2x= 480f
     var c2y= 1200f
+
     var hilo=Hilo(this)
 
-    /*init {
-        avancecohete2()
-        hilo.start()
-    }*/
 
     override fun onDraw(c: Canvas) {
         super.onDraw(c)
@@ -50,8 +46,8 @@ class animacion (p:MainActivity): View(p) {
 
 
         //dinamicos
-        c.drawBitmap(cohete1,c1x,c1y,p)
-        c.drawBitmap(cohete2,c2x,c2y,p)
+        c.drawBitmap(cohete1,250f,c1y,p)
+        c.drawBitmap(cohete2,480f,c2y,p)
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
@@ -61,6 +57,7 @@ class animacion (p:MainActivity): View(p) {
                 hilo.start()
             }
         }
+        invalidate()
         return true
     }
 
@@ -71,7 +68,6 @@ class animacion (p:MainActivity): View(p) {
             delay(20)
         }
     }
-
 
 }
 class Hilo (activity:animacion):Thread(){
