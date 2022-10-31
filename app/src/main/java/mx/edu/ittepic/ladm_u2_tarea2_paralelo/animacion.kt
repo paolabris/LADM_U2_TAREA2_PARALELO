@@ -20,9 +20,6 @@ class animacion (p:MainActivity): View(p) {
     var meta= BitmapFactory.decodeResource(resources, R.drawable.meta)
     var satelite = BitmapFactory.decodeResource(resources, R.drawable.satelite1)
     var estrella= BitmapFactory.decodeResource(resources, R.drawable.estrellas)
-    var coheteV1= BitmapFactory.decodeResource(resources,R.drawable.cohetevolteado)
-    var coheteV2= BitmapFactory.decodeResource(resources,R.drawable.cohetevolteado)
-
 
     var c1y= 1200f
     var c2y= 1200f
