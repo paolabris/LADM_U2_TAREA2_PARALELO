@@ -11,7 +11,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class animacion (p:MainActivity): View(p) {
-
+    //PAOLA
     //pantalla 1080x2400
     var tierra= BitmapFactory.decodeResource(resources,R.drawable.globoterraqueo)
     var luna= BitmapFactory.decodeResource(resources, R.drawable.luna)
@@ -23,10 +23,12 @@ class animacion (p:MainActivity): View(p) {
 
     var c1y= 1200f
     var c2y= 1200f
+    //FIN PAOLA
 
+    //OSCAR PERO CASI AL ULTIMO
     var hilo=Hilo(this)
 
-
+    //OSCAR  EL GUAPO
     override fun onDraw(c: Canvas) {
         super.onDraw(c)
         var p= Paint()
@@ -46,7 +48,7 @@ class animacion (p:MainActivity): View(p) {
         c.drawBitmap(cohete1,250f,c1y,p)
         c.drawBitmap(cohete2,480f,c2y,p)
     }
-
+    //POLITA
     override fun onTouchEvent(event: MotionEvent): Boolean {
         when(event.action){
             MotionEvent.ACTION_DOWN->{
@@ -67,6 +69,7 @@ class animacion (p:MainActivity): View(p) {
     }
 
 }
+//OSCARITO
 class Hilo (activity:animacion):Thread(){
 
     var act=activity
