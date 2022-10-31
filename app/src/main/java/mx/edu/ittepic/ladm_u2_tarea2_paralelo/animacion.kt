@@ -25,10 +25,10 @@ class animacion (p:MainActivity): View(p) {
 
     var c2x= 480f
     var c2y= 1200f
-
+    var hilo=Hilo(this)
     init {
         avancecohete2()
-
+        hilo.start()
     }
     override fun onDraw(c: Canvas) {
         super.onDraw(c)
@@ -58,4 +58,17 @@ class animacion (p:MainActivity): View(p) {
     }
 
 
+}
+class Hilo (activity:animacion):Thread(){
+
+    var act=activity
+
+    override fun run() {
+        super.run()
+        while (act.c1y>200f){
+            act.c1y-=.5f
+
+            sleep(20)
+        }
+    }
 }
